@@ -25,3 +25,24 @@ body {
     text-wrap: balance;
   }
 }
+
+
+
+
+.column {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 300px;
+}
+
+.task-item {
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.tasks {
+  margin-top: 20px;
+}
