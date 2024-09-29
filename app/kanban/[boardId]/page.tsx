@@ -1,4 +1,3 @@
-'use client'
 import KanbanBoard from '@/app/components/KanbanBoard';
 import QueryWrapper from '@/app/components/QueryWrapper';
 import { getBoardById } from '@/app/lib/db/boards';
@@ -17,7 +16,6 @@ export default async function BoardPage({ params }: BoardPageProps) {
   if (!board) {
     return notFound(); // 404 if the board doesnt exist
   }
-  console.log({ board })
   return (
     <div>
       <h1>{board.name}</h1>

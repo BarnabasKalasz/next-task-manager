@@ -12,9 +12,10 @@ interface ColumnProps {
 
 const Column = ({ column, tasks, isLoading }: ColumnProps) => {
 
-    const { setNodeRef } = useDroppable({
+    const { setNodeRef, isOver } = useDroppable({
         id: column,
     });
+
 
     return (
         <div ref={setNodeRef} className="kanban-column flex-1 bg-white rounded-lg shadow-md p-4">
@@ -22,7 +23,10 @@ const Column = ({ column, tasks, isLoading }: ColumnProps) => {
             {isLoading ? (
                 <p>Loading tasks...</p>
             ) : (
-                tasks?.map((task) => <TaskItem key={task.id} task={task} />)
+                tasks?.map((task) => {
+                    let status: Task['status'] = isOver ? column : task.status
+                    return <TaskItem key={task.id} task={{ ...{ status }, ...task }} />
+                })
             )}
         </div>
     );
