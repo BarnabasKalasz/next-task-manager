@@ -7,7 +7,7 @@ export const useDragAndDrop = (initialColumns: Board["columns"]) => {
 
   const handleDragEnd = (event: any) => {
     const { active, over } = event;
-
+    console.log({active})
     if (!over || active.id === over.id) {
       return; // No movement or dropped outside any droppable zone
     }

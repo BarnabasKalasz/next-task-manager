@@ -15,7 +15,7 @@ export const boards = [
   {
     id: '333',
     name: 'Exam Study',
-    columns: ['To-Study', 'Sudying', 'Knowledge-Checking', 'Revising', 'Know-By-Heart'],
+    columns: ['To-Study', 'Studying', 'Knowledge-Checking', 'Revising', 'Know-By-Heart'],
   },
 ];
 

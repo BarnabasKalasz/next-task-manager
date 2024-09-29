@@ -19,7 +19,7 @@ const KanbanBoard = async ({ board }: KanbanBoardProps) => {
     // if (isLoading) return <p>Loading...</p>;
 
     return (
-        <div className="kanban-board">
+        <div className="kanban-board flex flex-col sm:flex-row gap-4 p-4 bg-gray-100 min-h-screen">
             {columns?.map((column) => (
                 <Column key={column} tasks={tasks.filter(task => task.status === column) || []} isLoading={false} column={column} />
             ))}

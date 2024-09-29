@@ -1,6 +1,5 @@
+'use client'
 import React from 'react'
-import { useTasks } from "../hooks/useTasks";
-import { Board } from "../models/Board";
 import { useDroppable } from '@dnd-kit/core';
 import TaskItem from "./TaskItem";
 import { Task } from '../models/Task';
@@ -18,8 +17,8 @@ const Column = ({ column, tasks, isLoading }: ColumnProps) => {
     });
 
     return (
-        <div ref={setNodeRef} className="kanban-column">
-            <h3>{column}</h3>
+        <div ref={setNodeRef} className="kanban-column flex-1 bg-white rounded-lg shadow-md p-4">
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">{column}</h3>
             {isLoading ? (
                 <p>Loading tasks...</p>
             ) : (
