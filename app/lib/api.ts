@@ -1,6 +1,5 @@
-import TaskItem from "../components/TaskItem";
-import { Board } from "../models/Board";
-import { Task } from "../models/Task";
+import { Board } from "../models/Board.interface";
+import { Task } from "../models/Task.interface";
 
 export const fetchBoards = async (): Promise<Board[]> => {
     let res = await fetch("http://localhost:3000/api/boards");
@@ -11,7 +10,7 @@ export const fetchBoards = async (): Promise<Board[]> => {
     return boards;
 }
 
-export const fetchBoardById = async (boardId: Board['id']): Promise<Board> => {
+export const fetchBoardById = async (boardId: Board['_id']): Promise<Board> => {
     let res = await fetch(`http://localhost:3000/api/boards/${boardId}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -28,7 +27,7 @@ export const fetchTasks = async (boardId: Task["boardId"]) => {
     return tasks;
 }
 
-export const updateTask = async (taskId: Task['id'], newStatus: Task['status'], boardId: Board['id']) => {
+export const updateTask = async (taskId: Task['_id'], newStatus: Task['status'], boardId: Board['_id']) => {
     let res = await fetch(`http://localhost:3000/api/boards/${boardId}/tasks/${taskId}`, {
         method: 'PUT', headers: {
             'Content-Type': 'application/json',

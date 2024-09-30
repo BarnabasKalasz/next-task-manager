@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Task } from '../models/Task'
+import { Task } from '../models/Task.interface'
 import { useDraggable } from '@dnd-kit/core';
 
 
@@ -11,7 +11,7 @@ interface TaskItemProps {
 const TaskItem = ({ task }: TaskItemProps) => {
 
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
-        id: task.id,
+        id: task._id as string,
     });
 
     const style = {

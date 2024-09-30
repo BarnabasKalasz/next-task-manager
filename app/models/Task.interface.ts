@@ -1,5 +1,7 @@
+import { ObjectId } from "mongodb";
+
 export interface Task {
-    id: string;
+    _id: string | ObjectId;
     title: string;
     description: string;
     creator: string;

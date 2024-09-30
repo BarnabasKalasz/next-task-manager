@@ -2,7 +2,7 @@
 import React from 'react'
 import { useDroppable } from '@dnd-kit/core';
 import TaskItem from "./TaskItem";
-import { Task } from '../models/Task';
+import { Task } from '../models/Task.interface';
 
 interface ColumnProps {
     column: string;
@@ -25,7 +25,7 @@ const Column = ({ column, tasks, isLoading }: ColumnProps) => {
             ) : (
                 tasks?.map((task) => {
                     let status: Task['status'] = isOver ? column : task.status
-                    return <TaskItem key={task.id} task={{ ...{ status }, ...task }} />
+                    return <TaskItem key={task._id as string} task={{ ...{ status }, ...task }} />
                 })
             )}
         </div>

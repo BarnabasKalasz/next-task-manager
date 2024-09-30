@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Column from './Column';
-import { Board } from '../models/Board';
+import { Board } from '../models/Board.interface';
 import { useTasks } from '../hooks/useTasks';
 import { DndContext } from '@dnd-kit/core';
 import { useUpdateTaskStatus } from '../hooks/useUpdateTaskStatus';
@@ -12,7 +12,7 @@ interface KanbanBoardProps {
     board: Board
 }
 const KanbanBoard = ({ board }: KanbanBoardProps) => {
-    const { data: tasks, isLoading, error } = useTasks(board.id);
+    const { data: tasks, isLoading, error } = useTasks(board._id || '');
     const updateTaskStatus = useUpdateTaskStatus()
 
     const handleDragEnd = (event: any) => { //TBD dont leave this to be any
@@ -28,7 +28,7 @@ const KanbanBoard = ({ board }: KanbanBoardProps) => {
             return;
         }
 
-        updateTaskStatus.mutate({ taskId: active.id, newStatus, boardId: board.id })
+        updateTaskStatus.mutate({ taskId: active.id, newStatus, boardId: board._id })
     }
 
     return (

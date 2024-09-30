@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Board } from "./models/Board";
+import { Board } from "./models/Board.interface";
 import { getBoards } from "./lib/db/boards";
 
 export default async function Home() {
@@ -12,7 +12,7 @@ export default async function Home() {
     boards = [];
   }
 
-  return boards.map(board => <Link href={`kanban/${board.id}`}><h1>{board.name}</h1></Link>
+  return boards.map(board => <Link href={`kanban/${board._id}`}><h1>{board.name}</h1></Link>
   )
 
 }
