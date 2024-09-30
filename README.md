@@ -1,3 +1,5 @@
+# Development in progress 
+
 MongoDB rund in a docker, so if you want to use the included db. Install docker, then in the root directory, run `docker-compose --env-file .env.local up`. Of courese use your own .env file in the shell command.
 
 The env file should contain the mongo uri, the mongo username and password as the docker wants it in the yaml file.

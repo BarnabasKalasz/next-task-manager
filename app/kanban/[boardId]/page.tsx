@@ -12,8 +12,6 @@ interface BoardPageProps {
 export default async function BoardPage({ params }: BoardPageProps) {
   const { boardId } = params;
   const board = await getBoardById(boardId)
-  console.log({boardIdinBoardPage: boardId})
-  console.log({params})
   if (!board) {
     return notFound(); // 404 if the board doesnt exist
   }

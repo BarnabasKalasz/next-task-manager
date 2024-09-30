@@ -21,7 +21,6 @@ export const fetchBoardById = async (boardId: Board['_id']): Promise<Board> => {
 }
 
 export const fetchTasks = async (boardId: Task["boardId"]) => {
-    console.log('fetchtasks is called')
     let res = await fetch(`http://localhost:3000/api/boards/${boardId}/tasks`);
     let tasks: Task[] = await res.json()
     return tasks;
